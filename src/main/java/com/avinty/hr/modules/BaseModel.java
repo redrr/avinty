@@ -1,5 +1,7 @@
 package com.avinty.hr.modules;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -8,6 +10,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.util.Date;
 
+@Setter
+@Getter
 @MappedSuperclass
 public abstract class BaseModel {
 

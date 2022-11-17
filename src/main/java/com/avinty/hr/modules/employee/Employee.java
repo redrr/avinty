@@ -23,9 +23,16 @@ public class Employee extends BaseModel {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
+    private String password;
+
     @Enumerated(value = EnumType.STRING)
     @Column(name = "position")
     private Position position;
+
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
 
     @ManyToOne
     @JoinColumn(name = "department_id")

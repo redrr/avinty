@@ -10,12 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Employee filter implementation for listing
+ * @author mredly
+ */
 public class EmployeeSpecification implements Specification<Employee> {
 
     private final EmployeeFilter filter;
 
     public EmployeeSpecification(EmployeeFilter criteria) {
-        this.filter =criteria;
+        this.filter = criteria;
     }
 
     @Override

@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Employee service for database operations
+ * @author mredly
+ */
 @Getter
 @Service
 @RequiredArgsConstructor
@@ -15,7 +19,6 @@ public class EmployeeService {
     private final EmployeeRepository repository;
 
     public List<EmployeeDTO> filterAll(EmployeeFilter employeeFilter) {
-        repository.asd();
         return repository.findAll(new EmployeeSpecification(employeeFilter)).stream()
                 .map(EmployeeDTO::new)
                 .collect(Collectors.toList());

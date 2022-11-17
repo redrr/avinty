@@ -11,6 +11,10 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Department entity
+ * @author mredly
+ */
 @Entity
 @Table(name = "department")
 @Getter

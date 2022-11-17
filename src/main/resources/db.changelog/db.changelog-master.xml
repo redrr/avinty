@@ -35,13 +35,17 @@
             <column name="modified_by" type="varchar(255)"/>
             <column name="full_name" type="varchar(255)"/>
             <column name="email" type="varchar(255)"/>
+            <column name="password" type="varchar(255)"/>
             <column name="position" type="varchar(64)"/>
+            <column name="role" type="varchar(64)"/>
             <column name="department_id" type="integer"/>
         </createTable>
         <insert tableName="employee">
             <column name="id" value="1"/>
             <column name="full_name" value="emp1"/>
             <column name="email" value="emp1@mail.hu"/>
+            <column name="password" value="$2a$12$Y/cvMoHoyHgrpeNTB5XY7.niLy/ifGGaeQEJI/bimdFTeRD1QCBBq"/>
+            <column name="role" value="ROLE_ADMIN"/>
             <column name="position" value="MANAGER"/>
             <column name="department_id" value="1"/>
         </insert>
@@ -49,6 +53,8 @@
             <column name="id" value="2"/>
             <column name="full_name" value="emp2"/>
             <column name="email" value="emp2@mail.hu"/>
+            <column name="password" value="$2a$12$Y/cvMoHoyHgrpeNTB5XY7.niLy/ifGGaeQEJI/bimdFTeRD1QCBBq"/>
+            <column name="role" value="ROLE_USER"/>
             <column name="position" value="EMPLOYEE"/>
             <column name="department_id" value="1"/>
         </insert>
@@ -56,6 +62,8 @@
             <column name="id" value="3"/>
             <column name="full_name" value="emp3"/>
             <column name="email" value="emp3@mail.hu"/>
+            <column name="password" value="$2a$12$Y/cvMoHoyHgrpeNTB5XY7.niLy/ifGGaeQEJI/bimdFTeRD1QCBBq"/>
+            <column name="role" value="ROLE_USER"/>
             <column name="position" value="MANAGER"/>
             <column name="department_id" value="2"/>
         </insert>
@@ -63,6 +71,8 @@
             <column name="id" value="4"/>
             <column name="full_name" value="emp4"/>
             <column name="email" value="emp4@mail.hu"/>
+            <column name="password" value="$2a$12$Y/cvMoHoyHgrpeNTB5XY7.niLy/ifGGaeQEJI/bimdFTeRD1QCBBq"/>
+            <column name="role" value="ROLE_USER"/>
             <column name="position" value="EMPLOYEE"/>
             <column name="department_id" value="2"/>
         </insert>

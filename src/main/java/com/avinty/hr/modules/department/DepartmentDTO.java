@@ -2,12 +2,18 @@ package com.avinty.hr.modules.department;
 
 import com.avinty.hr.modules.employee.EmployeeDTO;
 import lombok.Data;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * Department representation for REST API
+ * @author mredly
+ */
 @Data
+@FieldNameConstants
 public class DepartmentDTO {
 
     private String name;
@@ -22,9 +28,5 @@ public class DepartmentDTO {
                     .map(EmployeeDTO::new)
                     .collect(Collectors.toList());
         }
-    }
-
-    public DepartmentDTO(String name, Integer e) {
-        this.name = name;
     }
 }
