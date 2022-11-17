@@ -19,7 +19,6 @@ public abstract class BaseModel {
     @Column(name = "id")
     private Integer id;
 
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="created_at")
     @CreatedDate

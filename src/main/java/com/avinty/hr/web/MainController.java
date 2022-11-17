@@ -30,28 +30,28 @@ public class MainController {
     private final DepartmentService departmentService;
 
     // List all Employees
-    @PreAuthorize(value = "hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @PreAuthorize(value = "hasAnyRole(T(com.avinty.hr.modules.employee.Role).ROLE_USER.name(), T(com.avinty.hr.modules.employee.Role).ROLE_ADMIN.name())")
     @GetMapping(Constants.ALL_EMPLOYEES_URL)
     public ResponseEntity<List<EmployeeDTO>> listEmployees(@RequestParam(required = false) String name, @RequestParam(required = false) String email) {
         return ResponseEntity.ok(employeeService.filterAll(new EmployeeFilter(name, email)));
     }
 
     // List all Departments all employees
-    @PreAuthorize(value = "hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @PreAuthorize(value = "hasAnyRole(T(com.avinty.hr.modules.employee.Role).ROLE_USER.name(), T(com.avinty.hr.modules.employee.Role).ROLE_ADMIN.name())")
     @GetMapping(Constants.ALL_DEPARTMENT_EMPLOYEES_URL)
     public ResponseEntity<List<DepartmentDTO>> listDepartmentEmployees() {
         return ResponseEntity.ok(departmentService.findAll());
     }
 
     // List all departments
-    @PreAuthorize(value = "hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @PreAuthorize(value = "hasAnyRole(T(com.avinty.hr.modules.employee.Role).ROLE_USER.name(), T(com.avinty.hr.modules.employee.Role).ROLE_ADMIN.name())")
     @GetMapping(Constants.DEPARTMENT_URL)
     public ResponseEntity<DepartmentDTO> getDepartment(@RequestParam String name) throws AvintyException {
         return ResponseEntity.ok(departmentService.findByName(name));
     }
 
     // Promote an employee to department manager
-    @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
+    @PreAuthorize(value = "hasRole(T(com.avinty.hr.modules.employee.Role).ROLE_ADMIN.name())")
     @PatchMapping(Constants.DEPARTMENT_MANAGER_URL + Constants.ID_PATH_VARIABLE)
     public ResponseEntity<?> setDepartmentManager(@PathVariable("id") Integer employeeId) throws AvintyException {
         Employee employee = employeeService.getRepository().findById(employeeId).orElseThrow(() -> new AvintyException("Employee not found"));
@@ -61,7 +61,7 @@ public class MainController {
     }
 
     // Delete a given department
-    @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
+    @PreAuthorize(value = "hasRole(T(com.avinty.hr.modules.employee.Role).ROLE_ADMIN.name())")
     @DeleteMapping(Constants.DEPARTMENT_URL + Constants.ID_PATH_VARIABLE)
     public ResponseEntity<?> deleteDepartment(@PathVariable Integer id) throws AvintyException {
         Department department = departmentService.getRepository().findById(id).orElseThrow(() -> new AvintyException("Department not found"));

@@ -21,11 +21,11 @@ import static java.lang.annotation.ElementType.PARAMETER;
 public @interface ManagerValidation {
 
     //error message
-    public String message() default "Invalid employee: must be in Manager position!";
+    String message() default "Invalid employee: must be in Manager position!";
 
     //represents group of constraints
-    public Class<?>[] groups() default {};
+    Class<?>[] groups() default {};
 
     //represents additional information about annotation
-    public Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {};
 }
